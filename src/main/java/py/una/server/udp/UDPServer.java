@@ -15,6 +15,9 @@ public class UDPServer {
 	
     public static void main(String[] a){
         
+        System.out.println("Alumna: Alisha Rotela");
+        System.out.println("________________________________________________");
+
         // Variables
         int puertoServidor = 9876;
         // Arraylist de datos

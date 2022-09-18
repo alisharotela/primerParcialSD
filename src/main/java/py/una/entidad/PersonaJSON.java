@@ -17,10 +17,6 @@ public class PersonaJSON {
     	p.setNombre("Maria");
     	p.setApellido("Gomez");
     	p.setCedula(123456L);
-    	p.getAsignaturas().add("Algoritmos y Estructuras de Datos 2");
-    	p.getAsignaturas().add("Quimica");
-    	p.getAsignaturas().add("Ingles");
-    	
     	String r1 = representacion.objetoString(p);
     	System.out.println(r1);
     	
@@ -31,9 +27,9 @@ public class PersonaJSON {
     	
     	Persona r2 = representacion.stringObjeto(un_string);
     	System.out.println(r2.nombre + " " + r2.apellido + " " +r2.cedula );
-        for(String temp: r2.getAsignaturas()){
-        	System.out.println(temp);
-        }
+        // for(String temp: r2.getAsignaturas()){
+        // 	System.out.println(temp);
+        // }
     }
     
     public static String objetoString(Persona p) {	
@@ -43,13 +39,13 @@ public class PersonaJSON {
         obj.put("nombre", p.getNombre());
         obj.put("apellido", p.getApellido());
 
-        JSONArray list = new JSONArray();
+        // JSONArray list = new JSONArray();
         
-        for(String temp: p.getAsignaturas()){
-        	list.add(temp);
-        }
+        // for(String temp: p.getAsignaturas()){
+        // 	list.add(temp);
+        // }
        // if(list.size() > 0) {
-        	obj.put("asignaturas", list);
+        	// obj.put("asignaturas", list);
         //}
         
 
@@ -71,9 +67,9 @@ public class PersonaJSON {
         
         JSONArray msg = (JSONArray) jsonObject.get("asignaturas");
         Iterator<String> iterator = msg.iterator();
-        while (iterator.hasNext()) {
-        	p.getAsignaturas().add(iterator.next());
-        }
+        // while (iterator.hasNext()) {
+        // 	p.getAsignaturas().add(iterator.next());
+        // }
         return p;
 	}
 

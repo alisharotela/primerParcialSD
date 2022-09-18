@@ -11,6 +11,9 @@ public class UDPClient {
 
     public static void main(String a[]) throws Exception  {
 
+        System.out.println("Alumna: Alisha Rotela");
+        System.out.println("________________________________________________");
+
         // Datos necesario
         String direccionServidor = "127.0.0.1";
 
@@ -54,11 +57,11 @@ public class UDPClient {
                 System.out.print("Ingrese el apellido: ");
                 String apellido = inFromUser.readLine();
                 
-                System.out.println("Ingrese la marca del vehículo: ");
+                System.out.print("Ingrese la marca del vehículo: ");
                 String marca = inFromUser.readLine();
-                System.out.println("Ingrese la chapa del vehículo: ");
+                System.out.print("Ingrese la chapa del vehículo: ");
                 String chapa = inFromUser.readLine();
-                System.out.println("Ingrese el monto del vehículo: ");
+                System.out.print("Ingrese el monto del vehículo: ");
                 String strmonto = inFromUser.readLine();
                 
                 Datos d = new Datos(cedula, nombre, apellido, marca, chapa, Long.parseLong(strmonto));

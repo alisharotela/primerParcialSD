@@ -14,7 +14,10 @@ public class Persona {
 		this.apellido = papellido;
 	}
 	
-	public Long getCedula() {
+	public Persona() {
+    }
+
+    public Long getCedula() {
 		return cedula;
 	}
 
