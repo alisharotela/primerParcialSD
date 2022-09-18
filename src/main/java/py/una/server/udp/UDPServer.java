@@ -7,8 +7,6 @@ import java.util.List;
 
 import py.una.entidad.Datos;
 import py.una.entidad.DatosJSON;
-import py.una.entidad.Vehiculo;
-import py.una.entidad.VehiculoJSON;
 
 public class UDPServer {
 	

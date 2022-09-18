@@ -1,11 +1,8 @@
 modificados:
 Persona.java
 PersonaJSON.java
+PersonaDAO.java
 
-anhadidos:
-Vehiculo.java
-VehiculoJSON.java
-VehiculoDAO.java
-TestVehiculoDAO.java
-
-
+añadidos:
+Datos.java
+DatosJSON.java
