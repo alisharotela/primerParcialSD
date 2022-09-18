@@ -9,19 +9,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import py.una.entidad.Persona;
+import py.una.entidad.Vehiculo;
 
-public class PersonaDAO {
+public class VehiculoDAO {
  
 	/**
 	 * 
 	 * @param condiciones 
 	 * @return
 	 */
-	public List<Persona> seleccionar() {
-		String query = "SELECT cedula, nombre, apellido FROM persona ";
+	public List<Vehiculo> seleccionar() {
+		String query = "SELECT monto, marca, chapa FROM vehiculo ";
 		
-		List<Persona> lista = new ArrayList<Persona>();
+		List<Vehiculo> lista = new ArrayList<Vehiculo>();
 		
 		Connection conn = null; 
         try 
@@ -30,10 +30,10 @@ public class PersonaDAO {
         	ResultSet rs = conn.createStatement().executeQuery(query);
 
         	while(rs.next()) {
-        		Persona p = new Persona();
-        		p.setCedula(rs.getLong(1));
-        		p.setNombre(rs.getString(2));
-        		p.setApellido(rs.getString(3));
+        		Vehiculo p = new Vehiculo();
+        		p.setMonto(rs.getLong(1));
+        		p.setMarca(rs.getString(2));
+        		p.setChapa(rs.getString(3));
         		
         		lista.add(p);
         	}
@@ -52,25 +52,25 @@ public class PersonaDAO {
 
 	}
 	
-	public List<Persona> seleccionarPorCedula(long cedula) {
-		String SQL = "SELECT cedula, nombre, apellido FROM persona WHERE cedula = ? ";
+	public List<Vehiculo> seleccionarPorCedula(long monto) {
+		String SQL = "SELECT monto, marca, chapa FROM vehiculo WHERE monto = ? ";
 		
-		List<Persona> lista = new ArrayList<Persona>();
+		List<Vehiculo> lista = new ArrayList<Vehiculo>();
 		
 		Connection conn = null; 
         try 
         {
         	conn = Bd.connect();
         	PreparedStatement pstmt = conn.prepareStatement(SQL);
-        	pstmt.setLong(1, cedula);
+        	pstmt.setLong(1, monto);
         	
         	ResultSet rs = pstmt.executeQuery();
 
         	while(rs.next()) {
-        		Persona p = new Persona();
-        		p.setCedula(rs.getLong(1));
-        		p.setNombre(rs.getString(2));
-        		p.setApellido(rs.getString(3));
+        		Vehiculo p = new Vehiculo();
+        		p.setMonto(rs.getLong(1));
+        		p.setMarca(rs.getString(2));
+        		p.setChapa(rs.getString(3));
         		
         		lista.add(p);
         	}
@@ -89,9 +89,9 @@ public class PersonaDAO {
 
 	}
 	
-    public long insertar(Persona p) throws SQLException {
+    public long insertar(Vehiculo p) throws SQLException {
 
-        String SQL = "INSERT INTO persona(cedula, nombre, apellido) "
+        String SQL = "INSERT INTO vehiculo(monto, marca, chapa) "
                 + "VALUES(?,?,?)";
  
         long id = 0;
@@ -101,9 +101,9 @@ public class PersonaDAO {
         {
         	conn = Bd.connect();
         	PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setLong(1, p.getCedula());
-            pstmt.setString(2, p.getNombre());
-            pstmt.setString(3, p.getApellido());
+            pstmt.setLong(1, p.getMonto());
+            pstmt.setString(2, p.getMarca());
+            pstmt.setString(3, p.getChapa());
  
             int affectedRows = pstmt.executeUpdate();
             // check the affected rows 
@@ -134,9 +134,9 @@ public class PersonaDAO {
     }
 	
 
-    public long actualizar(Persona p) throws SQLException {
+    public long actualizar(Vehiculo p) throws SQLException {
 
-        String SQL = "UPDATE persona SET nombre = ? , apellido = ? WHERE cedula = ? ";
+        String SQL = "UPDATE vehiculo SET marca = ? , chapa = ? WHERE monto = ? ";
  
         long id = 0;
         Connection conn = null;
@@ -145,9 +145,9 @@ public class PersonaDAO {
         {
         	conn = Bd.connect();
         	PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, p.getNombre());
-            pstmt.setString(2, p.getApellido());
-            pstmt.setLong(3, p.getCedula());
+            pstmt.setString(1, p.getMarca());
+            pstmt.setString(2, p.getChapa());
+            pstmt.setLong(3, p.getMonto());
  
             int affectedRows = pstmt.executeUpdate();
             // check the affected rows 
@@ -174,9 +174,9 @@ public class PersonaDAO {
         return id;
     }
     
-    public long borrar(long cedula) throws SQLException {
+    public long borrar(long monto) throws SQLException {
 
-        String SQL = "DELETE FROM persona WHERE cedula = ? ";
+        String SQL = "DELETE FROM vehiculo WHERE monto = ? ";
  
         long id = 0;
         Connection conn = null;
@@ -185,7 +185,7 @@ public class PersonaDAO {
         {
         	conn = Bd.connect();
         	PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setLong(1, cedula);
+            pstmt.setLong(1, monto);
  
             int affectedRows = pstmt.executeUpdate();
             // check the affected rows 

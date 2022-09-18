@@ -12,8 +12,6 @@ public class Persona {
 		this.cedula = pcedula;
 		this.nombre = pnombre;
 		this.apellido = papellido;
-		
-		asignaturas = new ArrayList<String>();
 	}
 	
 	public Long getCedula() {
@@ -40,11 +38,4 @@ public class Persona {
 		this.apellido = apellido;
 	}
 
-	public List<String> getAsignaturas() {
-		return asignaturas;
-	}
-
-	public void setAsignaturas(List<String> asignaturas) {
-		this.asignaturas = asignaturas;
-	}
 }
